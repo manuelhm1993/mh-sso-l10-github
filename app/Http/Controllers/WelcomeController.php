@@ -12,16 +12,16 @@ class WelcomeController extends Controller
         $providers = collect([
             new Provider('Google','google', true, $this->GoogleIcon()),
             new Provider('Github','github', true, $this->GithubIcon()),
-            new Provider('Microsoft','microsoft', true, $this->MicrosoftIcon()),
-            new Provider('Tiktok','tiktok', true, $this->TiktokIcon()),
-            new Provider('Twitter/X','twitter', true, $this->TwitterIcon()),
-            new Provider('Youtube','youtube', true, $this->YoutubeIcon()),
-            new Provider('Discord','discord', true, $this->DiscordIcon()),
-            new Provider('Twitch','twitch', true, $this->TwitchIcon()),
+            // new Provider('Microsoft','microsoft', true, $this->MicrosoftIcon()),
+            // new Provider('Tiktok','tiktok', true, $this->TiktokIcon()),
+            // new Provider('Twitter/X','twitter', true, $this->TwitterIcon()),
+            // new Provider('Youtube','youtube', true, $this->YoutubeIcon()),
+            // new Provider('Discord','discord', true, $this->DiscordIcon()),
+            // new Provider('Twitch','twitch', true, $this->TwitchIcon()),
 
         ]);
         return view('welcome',['providers' => $providers]);
-        
+
     }
     public function GoogleIcon(){
         return '<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">

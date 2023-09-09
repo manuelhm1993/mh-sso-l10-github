@@ -9,28 +9,24 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialLoginController extends Controller
 {
-    //
     public function redirect($provider){
         return Socialite::driver($provider)->redirect();
-
     }
+
     public function callback($provider){
-        $userGoogle = Socialite::driver($provider)->stateless()->user();
+        $userSocial = Socialite::driver($provider)->stateless()->user();
         $user = User::updateOrCreate([
-            'email' => $userGoogle->email
+            'email' => $userSocial->email
             ],
             [
-                'name' => $userGoogle->name,
-                'avatar_url' => $userGoogle->avatar,
-                'password' => $userGoogle->email
+                'name' => $userSocial->name,
+                'avatar_url' => $userSocial->avatar,
+                'password' => $userSocial->email
             ]
         );
 
-        
         Auth::login($user);
+
         return redirect('/dashboard');
     }
-
-    
-    
 }
